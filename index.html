@@ -694,7 +694,8 @@ footer {
   .showcase-tab:hover { color: var(--teal); }
   .showcase-tab.active { color: var(--teal); border-bottom-color: var(--teal); font-weight: 600; }
 
-  .showcase-panel { display: none; }
+  .showcase-panel { display: none !important; }
+  .showcase-panel.active { display: block !important; }
   .showcase-panel.active { display: block; }
 
   /* ── Digital Marketing grid ── */
@@ -983,7 +984,7 @@ footer {
     <div class="hero-left">
       <div class="hero-photo-wrap">
       <div class="hero-photo-frame">
-        <img src="images/airasiaactivation5.jpeg" alt="Emerson Dinesh" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+        <img src="images/airasiaactivation5" alt="Emerson Dinesh" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
       </div>
       <div class="hero-photo-label"><span class="hero-photo-dot"></span>Open to opportunities</div>
     </div>
@@ -1363,29 +1364,29 @@ footer {
   <div class="section-inner">
     <div class="section-tag">Full Portfolio</div>
     <h2 class="section-title">The work, <em>in full.</em></h2>
-    <p class="section-sub" style="max-width:600px;margin-bottom:32px;">A complete view of my output across digital marketing, public relations, published writing, video production and speaking engagements.</p>
+    <p class="section-sub" style="max-width:600px;margin-bottom:32px;">A complete view across digital marketing campaigns, public relations, articles, video production and speaking engagements. Click any tab to explore.</p>
 
-    <div class="showcase-tabs">
-      <button class="showcase-tab active" onclick="switchTab(this,'dm')">📊 Digital Marketing</button>
-      <button class="showcase-tab" onclick="switchTab(this,'pr')">📰 Public Relations</button>
-      <button class="showcase-tab" onclick="switchTab(this,'writing')">✍️ Articles & Writing</button>
-      <button class="showcase-tab" onclick="switchTab(this,'video')">🎬 Video Production</button>
-      <button class="showcase-tab" onclick="switchTab(this,'speaking')">🎤 Speaking Gigs</button>
+    <div class="showcase-tabs" role="tablist">
+      <button class="showcase-tab active" onclick="switchTab(event,'dm')" role="tab">📊 Digital Marketing</button>
+      <button class="showcase-tab" onclick="switchTab(event,'pr')" role="tab">📰 Public Relations</button>
+      <button class="showcase-tab" onclick="switchTab(event,'writing')" role="tab">✍️ Articles & Writing</button>
+      <button class="showcase-tab" onclick="switchTab(event,'video')" role="tab">🎬 Video Production</button>
+      <button class="showcase-tab" onclick="switchTab(event,'speaking')" role="tab">🎤 Speaking Gigs</button>
     </div>
 
-    <!-- ── PANEL 1: DIGITAL MARKETING ── -->
+    <!-- PANEL: DIGITAL MARKETING -->
     <div class="showcase-panel active" id="panel-dm">
       <div class="dm-grid">
 
         <div class="dm-card">
           <div class="dm-card-img">
-            <img src="images/dm-3novex.png" alt="3novex Lead Gen Campaign" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="images/dm-3novex" alt="3novex Lead Gen" style="width:100%;height:100%;object-fit:cover;display:block;">
             <span class="dm-card-img-badge">Lead Generation</span>
           </div>
           <div class="dm-card-body">
             <div class="dm-card-client">3novex Asia Sdn Bhd</div>
             <div class="dm-card-title">B2B Conference Lead Generation Campaign</div>
-            <div class="dm-card-desc">4-week paid campaign for a B2B training and conference company. A/B tested ad copy to identify the highest-converting message before scaling spend.</div>
+            <div class="dm-card-desc">4-week paid campaign for a B2B conference company. A/B tested copy to find the highest-converting message before scaling spend. Copywriting was the decisive conversion lever.</div>
             <div class="dm-metrics">
               <span class="dm-metric">171 Leads</span>
               <span class="dm-metric">4.87% CVR</span>
@@ -1396,15 +1397,15 @@ footer {
         </div>
 
         <div class="dm-card">
-          <div class="dm-card-img" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;height:170px;">
-            <img src="images/airasiaactivation1.JPG" alt="AirAsia Activation" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <img src="images/airasiaactivation2.jpg" alt="AirAsia Activation" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <span class="dm-card-img-badge" style="grid-column:1/-1;position:relative;">GTM · New Markets</span>
+          <div class="dm-card-img" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+            <img src="images/airasiaactivation1" alt="AirAsia Activation" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="images/airasiaactivation2" alt="AirAsia Activation" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <span class="dm-card-img-badge" style="grid-column:1/-1;">GTM · New Markets</span>
           </div>
           <div class="dm-card-body">
             <div class="dm-card-client">AirAsia</div>
             <div class="dm-card-title">Central Asia Market Activation</div>
-            <div class="dm-card-desc">End-to-end on-ground market activation for AirAsia's entry into Central Asia — from proposal to execution. Managed KOL collaborations, local vendors, tourism partners, and media agencies in-market.</div>
+            <div class="dm-card-desc">End-to-end on-ground GTM execution for AirAsia's entry into Central Asia. Managed KOL collaborations, local vendors, tourism partners, and media agencies in-market — from proposal to launch.</div>
             <div class="dm-metrics">
               <span class="dm-metric">New Market Entry</span>
               <span class="dm-metric">KOL Management</span>
@@ -1414,15 +1415,15 @@ footer {
         </div>
 
         <div class="dm-card">
-          <div class="dm-card-img" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;height:170px;">
-            <img src="images/dm-pck.jpeg" alt="PCK Campaign" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <img src="images/dm-pck2.jpg" alt="PCK Campaign" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <span class="dm-card-img-badge" style="position:relative;">Social Media</span>
+          <div class="dm-card-img" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+            <img src="images/dm-pck.jpeg" alt="PCK Poster" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="images/dm-pck2.jpg" alt="PCK Meme" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <span class="dm-card-img-badge" style="grid-column:1/-1;">Social Media</span>
           </div>
           <div class="dm-card-body">
             <div class="dm-card-client">Big Show Entertainment</div>
             <div class="dm-card-title">Phua Chu Kang Live — Social Media Campaign</div>
-            <div class="dm-card-desc">End-to-end social campaign leveraging nostalgia-driven video content, flash sales, contests, and ticketing platform integration.</div>
+            <div class="dm-card-desc">Nostalgia-driven social campaign with 5 videos, flash sales, contest giveaways, and ticketing platform integration. Drove 280 ticket sales through content-led conversion.</div>
             <div class="dm-metrics">
               <span class="dm-metric">99.5K Views</span>
               <span class="dm-metric">213K Reach</span>
@@ -1433,15 +1434,15 @@ footer {
         </div>
 
         <div class="dm-card">
-          <div class="dm-card-img" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;height:170px;">
-            <img src="images/dm-bluej.jpg" alt="BlueJ Campaign" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <img src="images/dm-bluej3.jpg" alt="BlueJ Campaign" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <span class="dm-card-img-badge" style="position:relative;">Social Media Mgmt</span>
+          <div class="dm-card-img" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+            <img src="images/dm-bluej" alt="BlueJ Campaign" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="images/dm-bluej3" alt="BlueJ Campaign" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <span class="dm-card-img-badge" style="grid-column:1/-1;">Social Media Mgmt</span>
           </div>
           <div class="dm-card-body">
             <div class="dm-card-client">BlueJ — Delivery App</div>
             <div class="dm-card-title">Social Media Management — Ramadan Launch</div>
-            <div class="dm-card-desc">Social media strategy and content creation for a new delivery app during the Ramadan period. Collaborated with merchants for co-promotion.</div>
+            <div class="dm-card-desc">Seasonal content strategy for a new delivery app. Collaborated with merchants for co-promotion during Ramadan, building a relevant and engaging content calendar.</div>
             <div class="dm-metrics">
               <span class="dm-metric">+50 Followers/Day</span>
               <span class="dm-metric">Ramadan Campaign</span>
@@ -1450,15 +1451,15 @@ footer {
         </div>
 
         <div class="dm-card">
-          <div class="dm-card-img" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;height:170px;">
-            <img src="images/dm-dolphin.png" alt="Dolphin Tech" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <img src="images/dm-dolphin4.png" alt="Dolphin Tech" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <span class="dm-card-img-badge" style="position:relative;">Content Strategy</span>
+          <div class="dm-card-img" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+            <img src="images/dm-dolphin" alt="Dolphin Tech" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="images/dm-dolphin4" alt="Dolphin Tech" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <span class="dm-card-img-badge" style="grid-column:1/-1;">Content Strategy</span>
           </div>
           <div class="dm-card-body">
             <div class="dm-card-client">Dolphin Tech</div>
             <div class="dm-card-title">Brand Awareness — Digital Talent Agency</div>
-            <div class="dm-card-desc">Content strategy across visuals, animated videos, and infographics. Infographics drove the highest traction by communicating Dolphin Tech's value proposition clearly.</div>
+            <div class="dm-card-desc">Multi-format content strategy across visuals, animated videos, and infographics. Infographics drove highest traction — communicating Dolphin Tech's value proposition to job seekers clearly.</div>
             <div class="dm-metrics">
               <span class="dm-metric">+10% Follower Growth</span>
               <span class="dm-metric">Multi-Format Content</span>
@@ -1467,18 +1468,19 @@ footer {
         </div>
 
         <div class="dm-card">
-          <div class="dm-card-img">
-            <div class="dm-card-img-icon">📈</div>
-            <span class="dm-card-img-badge">B2B SaaS</span>
+          <div class="dm-card-img" style="background:linear-gradient(135deg,#0f1f3d,#1a3a6b);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
+            <div style="font-size:40px;">📈</div>
+            <span class="dm-card-img-badge" style="position:relative;top:auto;left:auto;">B2B SaaS · North America</span>
           </div>
           <div class="dm-card-body">
             <div class="dm-card-client">2X Marketing · Novata</div>
             <div class="dm-card-title">Multichannel Campaign Turnaround</div>
-            <div class="dm-card-desc">Rebuilt underperforming Google Search and Display campaigns. Restructured lead journeys and performance reporting aligned to CMO-level commercial objectives.</div>
+            <div class="dm-card-desc">Rebuilt underperforming Google Search and Display campaigns for a North American SaaS client. Restructured lead journeys and realigned reporting to CMO-level commercial objectives.</div>
             <div class="dm-metrics">
               <span class="dm-metric">+93% Conversions</span>
               <span class="dm-metric">−30% Costs</span>
               <span class="dm-metric">+67% NPS</span>
+              <span class="dm-metric">100% Promoter Q3 2024</span>
             </div>
           </div>
         </div>
@@ -1486,136 +1488,166 @@ footer {
       </div>
     </div>
 
-    <!-- ── PANEL 2: PR ── -->
+    <!-- PANEL: PUBLIC RELATIONS -->
     <div class="showcase-panel" id="panel-pr">
       <div class="pr-grid">
 
         <div class="pr-card">
-          <div class="pr-card-img" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;height:140px;overflow:hidden;border-radius:12px 12px 0 0;">
+          <div class="pr-card-img" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;border-radius:12px 12px 0 0;overflow:hidden;">
             <img src="images/dm-pck2.jpg" alt="PCK PR" style="width:100%;height:100%;object-fit:cover;display:block;">
             <img src="images/dm-pck3.jpg" alt="PCK PR" style="width:100%;height:100%;object-fit:cover;display:block;">
           </div>
           <div class="pr-card-body">
-            <div class="pr-card-type">Pre-Event Press Release</div>
-            <div class="pr-card-title">Phua Chu Kang is Coming to Malaysia — Hype.my</div>
-            <div class="pr-card-desc">Pitched and secured pre-event coverage on Hype.my. Delivered as a bonus above the social media brief — 3× PR value for the client.</div>
-            <div class="pr-stat"><span class="pr-stat-icon">📊</span><span><strong>Hype.my</strong> — major Malaysian lifestyle publication</span></div>
-            <div class="pr-stat"><span class="pr-stat-icon">💰</span><span><strong>3× PR value</strong> delivered above scope</span></div>
-            <a href="https://hype.my/phua-chu-kang-malaysia/" target="_blank" class="dm-link" style="margin-top:14px;">Read Article ↗</a>
+            <div class="pr-card-type">Pre-Event Press Release · Hype.my</div>
+            <div class="pr-card-title">Phua Chu Kang is Coming to Malaysia</div>
+            <div class="pr-card-desc">Pitched and secured pre-event press coverage on Hype.my — delivered as a bonus above the social media brief. Resulted in 3× PR value for the client at no additional cost.</div>
+            <div class="pr-stat"><span class="pr-stat-icon">📰</span><span><strong>Hype.my</strong> — Malaysia's top lifestyle publication</span></div>
+            <div class="pr-stat"><span class="pr-stat-icon">💰</span><span><strong>3× PR value</strong> above the original scope</span></div>
+            <a href="https://hype.my/phua-chu-kang-malaysia/" target="_blank" class="dm-link" style="margin-top:14px;display:inline-flex;">Read on Hype.my ↗</a>
           </div>
         </div>
 
         <div class="pr-card">
-          <div class="pr-card-img" style="height:140px;overflow:hidden;border-radius:12px 12px 0 0;">
+          <div class="pr-card-img" style="border-radius:12px 12px 0 0;overflow:hidden;">
             <img src="images/dm-pck.jpeg" alt="Rojak Daily PR" style="width:100%;height:100%;object-fit:cover;display:block;">
           </div>
           <div class="pr-card-body">
-            <div class="pr-card-type">Pre-Event Press Release</div>
-            <div class="pr-card-title">Phua Chu Kang Live — Rojak Daily Coverage</div>
-            <div class="pr-card-desc">Secured placement on Rojak Daily — one of Malaysia's most widely-read entertainment platforms.</div>
+            <div class="pr-card-type">Pre-Event Press Release · Rojak Daily</div>
+            <div class="pr-card-title">Phua Chu Kang Coming to Malaysia — Rojak Daily</div>
+            <div class="pr-card-desc">Secured placement on Rojak Daily — one of Malaysia's most widely-read entertainment platforms — driving significant pre-event awareness and ticket sales momentum.</div>
             <div class="pr-stat"><span class="pr-stat-icon">👥</span><span><strong>500–600K monthly users</strong></span></div>
             <div class="pr-stat"><span class="pr-stat-icon">👁️</span><span><strong>550–700K page views/month</strong></span></div>
-            <a href="https://rojakdaily.com/entertainment/article/7894/phua-chu-kang-is-coming-to-malaysia-to-make-fun-of-you-this-november" target="_blank" class="dm-link" style="margin-top:14px;">Read Article ↗</a>
+            <a href="https://rojakdaily.com/entertainment/article/7894/phua-chu-kang-is-coming-to-malaysia-to-make-fun-of-you-this-november" target="_blank" class="dm-link" style="margin-top:14px;display:inline-flex;">Read on Rojak Daily ↗</a>
           </div>
         </div>
 
         <div class="pr-card">
-          <div class="pr-card-img" style="padding:0;height:0;padding-bottom:42%;position:relative;overflow:hidden;border-radius:12px 12px 0 0;">
-            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D3376541892425408&show_text=false&width=100%25" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"></iframe>
+          <div style="padding-bottom:56%;position:relative;overflow:hidden;border-radius:12px 12px 0 0;">
+            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D3376541892425408&show_text=false" frameborder="0" allow="autoplay;picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"></iframe>
           </div>
           <div class="pr-card-body">
-            <div class="pr-card-type">Post-Event Media Coverage</div>
-            <div class="pr-card-title">Phua Chu Kang Live — Post-Event Interview & Coverage</div>
-            <div class="pr-card-desc">Coordinated post-event media coverage. Secured interview and coverage video with 10,000+ views.</div>
+            <div class="pr-card-type">Post-Event Video Coverage · Facebook</div>
+            <div class="pr-card-title">Phua Chu Kang Live — Post-Event Interview</div>
+            <div class="pr-card-desc">Coordinated and hosted media on event day. Secured a post-event interview video that achieved 10,000+ views and strong social engagement — delivered as a bonus PR asset.</div>
             <div class="pr-stat"><span class="pr-stat-icon">▶️</span><span><strong>10,000+ views</strong> · High engagement rate</span></div>
-            <a href="https://www.facebook.com/watch/?v=3376541892425408&ref=sharing" target="_blank" class="dm-link" style="margin-top:14px;">Watch Coverage ↗</a>
+            <a href="https://www.facebook.com/watch/?v=3376541892425408" target="_blank" class="dm-link" style="margin-top:14px;display:inline-flex;">Watch on Facebook ↗</a>
           </div>
         </div>
 
         <div class="pr-card">
-          <div class="pr-card-img" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;height:140px;overflow:hidden;border-radius:12px 12px 0 0;">
-            <img src="images/airasiaactivation1.JPG" alt="AirAsia PR" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <img src="images/airasiaactivation8.jpeg" alt="AirAsia PR" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <div class="pr-card-img" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;border-radius:12px 12px 0 0;overflow:hidden;">
+            <img src="images/airasiaactivation1" alt="AirAsia PR" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="images/airasiaactivation8" alt="AirAsia PR" style="width:100%;height:100%;object-fit:cover;display:block;">
           </div>
           <div class="pr-card-body">
-            <div class="pr-card-type">International Media — REDmoney</div>
-            <div class="pr-card-title">Inaugural Africa Islamic Forum — Global Media Coverage</div>
-            <div class="pr-card-desc">Secured international media coverage — Bloomberg, CNBC, VOXafrica, Zambia Daily Mail, African Business.</div>
-            <div class="pr-stat"><span class="pr-stat-icon">📡</span><span><strong>Bloomberg, CNBC, VOXafrica</strong></span></div>
+            <div class="pr-card-type">International Press · REDmoney Group</div>
+            <div class="pr-card-title">Africa Islamic Forum — Bloomberg, CNBC Coverage</div>
+            <div class="pr-card-desc">Secured international media coverage for the inaugural Africa Islamic Forum, co-organised with the Government of Côte d'Ivoire and ICD. Coordinated global press partnerships.</div>
+            <div class="pr-stat"><span class="pr-stat-icon">📡</span><span><strong>Bloomberg · CNBC · VOXafrica</strong></span></div>
+            <div class="pr-stat"><span class="pr-stat-icon">🌍</span><span>Zambia Daily Mail · African Business</span></div>
           </div>
         </div>
 
       </div>
     </div>
 
-    <!-- ── PANEL 3: WRITING ── -->
+    <!-- PANEL: ARTICLES & WRITING -->
     <div class="showcase-panel" id="panel-writing">
       <div class="writings-list">
-        <a href="https://www.linkedin.com/pulse/5-tips-building-sustainable-brand-emerson-dinesh/" target="_blank" class="writing-row"><div class="writing-num">01</div><div class="writing-body"><div class="writing-topic">Brand Strategy · LinkedIn Pulse</div><div class="writing-title">5 Tips on Building a Sustainable Brand</div><div class="writing-meta">April 2021 · LinkedIn Pulse</div></div><div class="writing-arrow">→</div></a>
-        <a href="https://www.linkedin.com/pulse/why-precious-metals-safe-haven-emerson-dinesh/" target="_blank" class="writing-row"><div class="writing-num">02</div><div class="writing-body"><div class="writing-topic">Finance · Investment · LinkedIn Pulse</div><div class="writing-title">Why Precious Metals as a Safe Haven?</div><div class="writing-meta">April 2021 · LinkedIn Pulse</div></div><div class="writing-arrow">→</div></a>
-        <a href="https://media.journoportfolio.com/users/159026/uploads/381759c4-72d4-4dfe-9d45-6e18558acc73.pdf" target="_blank" class="writing-row"><div class="writing-num">03</div><div class="writing-body"><div class="writing-topic">RegTech · Blockchain · Academic</div><div class="writing-title">RegTech and Blockchain: How Do Both Technologies Coincide?</div><div class="writing-meta">April 2021 · University Malaya VisioBloc Newsletter</div></div><div class="writing-arrow">→</div></a>
-        <a href="https://media.journoportfolio.com/users/159026/uploads/0d170fb5-265e-4bcf-bc36-d619a11e3130.pdf" target="_blank" class="writing-row"><div class="writing-num">04</div><div class="writing-body"><div class="writing-topic">Data · Analytics · Strategy</div><div class="writing-title">Data Quality Framework Reporting</div><div class="writing-meta">April 2021 · Published PDF</div></div><div class="writing-arrow">→</div></a>
-        <a href="https://bit.ly/3eG3HWv" target="_blank" class="writing-row"><div class="writing-num">05</div><div class="writing-body"><div class="writing-topic">Technology · Law · Privacy</div><div class="writing-title">Data Privacy Concerns in Different Jurisdictions</div><div class="writing-meta">May 2020</div></div><div class="writing-arrow">→</div></a>
-        <a href="https://bit.ly/2WPayFM" target="_blank" class="writing-row"><div class="writing-num">06</div><div class="writing-body"><div class="writing-topic">Brand · Emerging Tech</div><div class="writing-title">How Brands Are Executing Innovative Strategies to Resolve Counterfeit</div><div class="writing-meta">May 2020</div></div><div class="writing-arrow">→</div></a>
-        <a href="https://bit.ly/3caz0rr" target="_blank" class="writing-row"><div class="writing-num">07</div><div class="writing-body"><div class="writing-topic">E-Commerce · Blockchain</div><div class="writing-title">Growing E-Commerce Businesses with Emerging Technologies like Blockchain</div><div class="writing-meta">May 2020</div></div><div class="writing-arrow">→</div></a>
-        <a href="https://bit.ly/3bisCOp" target="_blank" class="writing-row"><div class="writing-num">08</div><div class="writing-body"><div class="writing-topic">Blockchain · Healthcare · Crisis</div><div class="writing-title">How Blockchain Can Help Three Industries Amidst COVID-19</div><div class="writing-meta">April 2020</div></div><div class="writing-arrow">→</div></a>
-        <a href="https://bit.ly/2W56DoZ" target="_blank" class="writing-row"><div class="writing-num">09</div><div class="writing-body"><div class="writing-topic">Blockchain · Supply Chain</div><div class="writing-title">What is Blockchain and How Does It Help with Traceability in Supply Chain Management?</div><div class="writing-meta">May 2019</div></div><div class="writing-arrow">→</div></a>
-        <a href="https://dolphintech.org/blog/" target="_blank" class="writing-row"><div class="writing-num">10</div><div class="writing-body"><div class="writing-topic">Hiring · Career · HR</div><div class="writing-title">You Got Hired as the Dream Candidate but Fired Yourself Instantly. Why?</div><div class="writing-meta">April 2021 · Dolphin Tech Blog</div></div><div class="writing-arrow">→</div></a>
+        <a href="https://www.linkedin.com/pulse/5-tips-building-sustainable-brand-emerson-dinesh/" target="_blank" class="writing-row">
+          <div class="writing-num">01</div>
+          <div class="writing-body"><div class="writing-topic">Brand Strategy · LinkedIn Pulse</div><div class="writing-title">5 Tips on Building a Sustainable Brand</div><div class="writing-meta">April 2021 · LinkedIn Pulse</div></div>
+          <div class="writing-arrow">→</div>
+        </a>
+        <a href="https://www.linkedin.com/pulse/why-precious-metals-safe-haven-emerson-dinesh/" target="_blank" class="writing-row">
+          <div class="writing-num">02</div>
+          <div class="writing-body"><div class="writing-topic">Finance · Investment</div><div class="writing-title">Why Precious Metals as a Safe Haven?</div><div class="writing-meta">April 2021 · LinkedIn Pulse</div></div>
+          <div class="writing-arrow">→</div>
+        </a>
+        <a href="https://media.journoportfolio.com/users/159026/uploads/381759c4-72d4-4dfe-9d45-6e18558acc73.pdf" target="_blank" class="writing-row">
+          <div class="writing-num">03</div>
+          <div class="writing-body"><div class="writing-topic">RegTech · Blockchain</div><div class="writing-title">RegTech and Blockchain: How Do Both Technologies Coincide?</div><div class="writing-meta">April 2021 · University Malaya VisioBloc Newsletter</div></div>
+          <div class="writing-arrow">→</div>
+        </a>
+        <a href="https://media.journoportfolio.com/users/159026/uploads/0d170fb5-265e-4bcf-bc36-d619a11e3130.pdf" target="_blank" class="writing-row">
+          <div class="writing-num">04</div>
+          <div class="writing-body"><div class="writing-topic">Data · Analytics</div><div class="writing-title">Data Quality Framework Reporting</div><div class="writing-meta">April 2021 · Published PDF</div></div>
+          <div class="writing-arrow">→</div>
+        </a>
+        <a href="https://bit.ly/3eG3HWv" target="_blank" class="writing-row">
+          <div class="writing-num">05</div>
+          <div class="writing-body"><div class="writing-topic">Technology · Privacy · Law</div><div class="writing-title">Data Privacy Concerns in Different Jurisdictions</div><div class="writing-meta">May 2020 · External Publication</div></div>
+          <div class="writing-arrow">→</div>
+        </a>
+        <a href="https://bit.ly/2WPayFM" target="_blank" class="writing-row">
+          <div class="writing-num">06</div>
+          <div class="writing-body"><div class="writing-topic">Brand · Emerging Tech</div><div class="writing-title">How Brands Are Executing Innovative Strategies to Resolve Counterfeit</div><div class="writing-meta">May 2020 · External Publication</div></div>
+          <div class="writing-arrow">→</div>
+        </a>
+        <a href="https://bit.ly/3caz0rr" target="_blank" class="writing-row">
+          <div class="writing-num">07</div>
+          <div class="writing-body"><div class="writing-topic">E-Commerce · Blockchain</div><div class="writing-title">Growing E-Commerce with Emerging Technologies like Blockchain</div><div class="writing-meta">May 2020 · External Publication</div></div>
+          <div class="writing-arrow">→</div>
+        </a>
+        <a href="https://bit.ly/3bisCOp" target="_blank" class="writing-row">
+          <div class="writing-num">08</div>
+          <div class="writing-body"><div class="writing-topic">Blockchain · Healthcare</div><div class="writing-title">How Blockchain Can Help Three Industries Amidst COVID-19</div><div class="writing-meta">April 2020 · External Publication</div></div>
+          <div class="writing-arrow">→</div>
+        </a>
+        <a href="https://bit.ly/2W56DoZ" target="_blank" class="writing-row">
+          <div class="writing-num">09</div>
+          <div class="writing-body"><div class="writing-topic">Blockchain · Supply Chain</div><div class="writing-title">What is Blockchain and How Does It Help with Supply Chain Traceability?</div><div class="writing-meta">May 2019 · External Publication</div></div>
+          <div class="writing-arrow">→</div>
+        </a>
+        <a href="https://dolphintech.org/blog/" target="_blank" class="writing-row">
+          <div class="writing-num">10</div>
+          <div class="writing-body"><div class="writing-topic">Hiring · Career Development</div><div class="writing-title">You Got Hired as the Dream Candidate but Fired Yourself Instantly. Why?</div><div class="writing-meta">April 2021 · Dolphin Tech Blog</div></div>
+          <div class="writing-arrow">→</div>
+        </a>
       </div>
     </div>
 
-    <!-- ── PANEL 4: VIDEO ── -->
+    <!-- PANEL: VIDEO PRODUCTION -->
     <div class="showcase-panel" id="panel-video">
+      <div style="margin-bottom:20px;padding:16px;background:rgba(14,168,152,0.06);border:1px solid rgba(14,168,152,0.15);border-radius:10px;font-size:13px;color:var(--text-mid);line-height:1.6;">
+        From brand storytelling to live event coverage — here are two video productions I was directly involved in. Click play to watch.
+      </div>
       <div class="video-grid">
+
         <div class="video-card">
-          <div class="video-thumb" style="padding:0;height:0;padding-bottom:56.25%;position:relative;overflow:hidden;border-radius:12px 12px 0 0;">
-            <iframe src="https://www.youtube.com/embed/O7O6h6heLzs" title="Bains Physiotherapy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"></iframe>
+          <div style="padding-bottom:56.25%;position:relative;overflow:hidden;border-radius:12px 12px 0 0;">
+            <iframe src="https://www.youtube.com/embed/O7O6h6heLzs" title="Bains Physiotherapy — Samson's Journey" frameborder="0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"></iframe>
           </div>
           <div class="video-body">
-            <div class="video-tag">Brand Film · Storytelling · Actor</div>
+            <div class="video-tag">Brand Film · Actor · Creative Collaborator</div>
             <div class="video-title">Bains Physiotherapy — "Samson's Journey"</div>
-            <div class="video-desc">Played the lead character Samson — a 36-year-old millennial who overcomes fear and misconceptions about physiotherapy. Produced alongside a professional production house to reframe how young patients perceive clinic visits.</div>
+            <div class="video-desc">I played the lead character Samson — a 36-year-old millennial who discovers physiotherapy isn't what he feared. Produced with a professional production house to break down barriers young patients have about seeking treatment. Shot on location in Kuala Lumpur.<br><br><span style="color:rgba(14,168,152,0.7);font-size:12px;">Role: Lead Actor · Brand Storytelling · Creative Brief</span></div>
           </div>
         </div>
+
         <div class="video-card">
-          <div class="video-thumb" style="padding:0;height:0;padding-bottom:56.25%;position:relative;overflow:hidden;border-radius:12px 12px 0 0;">
-            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D3376541892425408&show_text=false&width=100%25" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"></iframe>
+          <div style="padding-bottom:56.25%;position:relative;overflow:hidden;border-radius:12px 12px 0 0;">
+            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D3376541892425408&show_text=false" frameborder="0" allow="autoplay;picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"></iframe>
           </div>
           <div class="video-body">
-            <div class="video-tag">Post-Event Media Video</div>
-            <div class="video-title">Phua Chu Kang Live — Post-Event Interview Coverage</div>
-            <div class="video-desc">Coordinated and hosted media at the Phua Chu Kang live event. Secured post-event interview coverage with 10,000+ views and strong social engagement.</div>
+            <div class="video-tag">Post-Event Coverage · Media Coordinator</div>
+            <div class="video-title">Phua Chu Kang Live — Post-Event Interview</div>
+            <div class="video-desc">Coordinated and hosted media at the Phua Chu Kang Live event in Malaysia. Negotiated coverage terms with press, facilitated on-the-day interviews, and secured this post-event video that achieved 10,000+ views.<br><br><span style="color:rgba(14,168,152,0.7);font-size:12px;">Result: 10,000+ views · High engagement · Bonus PR asset for client</span></div>
           </div>
         </div>
+
       </div>
     </div>
 
-    <!-- ── PANEL 5: SPEAKING GIGS ── -->
+    <!-- PANEL: SPEAKING GIGS -->
     <div class="showcase-panel" id="panel-speaking">
       <div class="dm-grid">
 
         <div class="dm-card">
-          <div class="dm-card-img" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;height:170px;">
-            <img src="images/chaintope3.jpg" alt="Chaintope Speaking" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <img src="images/chaintope5.jpg" alt="Chaintope Speaking" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
-          <div class="dm-card-body">
-            <div class="dm-card-client">Chaintope Malaysia · TrueIncube</div>
-            <div class="dm-card-title">Blockchain Industry Talks & Presentations</div>
-            <div class="dm-card-desc">Delivered proposals and presentations to key stakeholders — government representatives, industry associations, and enterprise prospects — on the commercial value of blockchain adoption. Spoke at TrueIncube and industry forums.</div>
-            <div class="dm-metrics">
-              <span class="dm-metric">Blockchain Advocacy</span>
-              <span class="dm-metric">Enterprise Pitches</span>
-              <span class="dm-metric">Govt Stakeholders</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="dm-card">
-          <div class="dm-card-img" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;height:170px;position:relative;">
-            <img src="images/dm-silverbullion2_jpg.jpg" alt="Emerson presenting at Silver Bullion" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
-            <img src="images/dm-silverbullion_jpg.jpg" alt="Silver Bullion presentation" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <span class="dm-card-img-badge" style="position:absolute;bottom:8px;left:8px;">Speaker · 2017</span>
+          <div class="dm-card-img" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+            <img src="images/dm-silverbullion2" alt="Emerson presenting" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
+            <img src="images/dm-silverbullion.jpg" alt="Silver Bullion event" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <span class="dm-card-img-badge" style="grid-column:1/-1;">Speaker · 2017</span>
           </div>
           <div class="dm-card-body">
             <div class="dm-card-client">Silver Bullion Malaysia</div>
@@ -1630,14 +1662,33 @@ footer {
         </div>
 
         <div class="dm-card">
-          <div class="dm-card-img" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;height:170px;">
-            <img src="images/airasiaactivation5.jpeg" alt="AirAsia Market Entry" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <img src="images/airasiaactivation6.jpeg" alt="AirAsia Market Entry" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <div class="dm-card-img" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+            <img src="images/chaintope3" alt="Chaintope Talk" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="images/chaintope5" alt="Chaintope Talk" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <span class="dm-card-img-badge" style="grid-column:1/-1;">Blockchain Advocate</span>
+          </div>
+          <div class="dm-card-body">
+            <div class="dm-card-client">Chaintope Malaysia · TrueIncube · MDEC</div>
+            <div class="dm-card-title">Blockchain Industry Talks & Stakeholder Presentations</div>
+            <div class="dm-card-desc">Delivered blockchain advocacy presentations at TrueIncube and industry forums. Pitched to government representatives, associations, and enterprise clients including MDEC, Egyptian Bank Institute, FMM, and AEON on real-world blockchain adoption.</div>
+            <div class="dm-metrics">
+              <span class="dm-metric">MDEC Partnership</span>
+              <span class="dm-metric">Govt Stakeholders</span>
+              <span class="dm-metric">Enterprise Pitches</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dm-card">
+          <div class="dm-card-img" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+            <img src="images/airasiaactivation5" alt="AirAsia Briefing" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="images/airasiaactivation6" alt="AirAsia Briefing" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <span class="dm-card-img-badge" style="grid-column:1/-1;">Market Briefings · 2025</span>
           </div>
           <div class="dm-card-body">
             <div class="dm-card-client">AirAsia · Central Asia</div>
-            <div class="dm-card-title">Market Entry Briefings — Central Asia</div>
-            <div class="dm-card-desc">Led partner briefings and stakeholder presentations for AirAsia's new market entry into Central Asia. Coordinated with local tourism partners, government bodies, and media agencies to align on GTM objectives.</div>
+            <div class="dm-card-title">Partner & Stakeholder Briefings — Central Asia Market Entry</div>
+            <div class="dm-card-desc">Led partner briefings and stakeholder presentations for AirAsia's new market entry into Central Asia. Aligned local tourism partners, government bodies, and media agencies around GTM objectives and campaign strategy.</div>
             <div class="dm-metrics">
               <span class="dm-metric">Market Entry</span>
               <span class="dm-metric">Partner Briefings</span>
@@ -1651,7 +1702,6 @@ footer {
 
   </div>
 </section>
-
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
