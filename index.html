@@ -1,5 +1,7 @@
 
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +11,7 @@
 <title>Emerson Dinesh — Growth Marketing Manager</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=TsiEOzUP0WcbJPxpeXr5ekh7UCrbIDIJKuBsUUHqXTqcpjdL4lg0-n_zfJd3fwK5vJ82iGbZSdnPLBotBqIIk-CcZm64YRJfI8lpL_jrOs0" charset="UTF-8"></script><style>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=dRcxwChFItWFxChRO6AOvt44AGrPcm7JJv_vfqQKx1UQnlEmlt09K-y4VDH8GSIKBY5xx360lAZf55Z0b5Z--4cS8505-YSHcFQgwrPRL_8" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=TsiEOzUP0WcbJPxpeXr5ekh7UCrbIDIJKuBsUUHqXTqcpjdL4lg0-n_zfJd3fwK5vJ82iGbZSdnPLBotBqIIk-CcZm64YRJfI8lpL_jrOs0" charset="UTF-8"></script><style>
 :root {
   --navy: #0f1f3d;
   --navy-mid: #162840;
@@ -958,14 +960,88 @@ footer {
     font-style: italic !important;
   }
 
+/* ── ENHANCED MOBILE ── */
+@media (max-width: 900px) {
+  #hamburger { display: flex !important; }
+  .nav-links { display: none !important; }
+
+  /* Showcase grid responsive */
+  #tab-dm > div,
+  #tab-wr > div { grid-template-columns: 1fr 1fr !important; }
+
+  /* PR grid */
+  .pr-grid { grid-template-columns: 1fr !important; }
+
+  /* Speaking gigs */
+  #tab-sp > div { grid-template-columns: 1fr !important; max-width: 100% !important; }
+
+  /* Showcase section padding */
+  #showcase { padding: 60px 20px !important; }
+  #showcase > div { padding: 0 !important; }
+
+  /* Results */
+  .results-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Testimonials */
+  .testi-grid { grid-template-columns: 1fr !important; }
+  .testi-card.featured { grid-column: 1 !important; }
+  .testi-card[style*="grid-column:1/-1"] { grid-column: 1 !important; }
+
+  /* Portfolio */
+  .portfolio-grid { grid-template-columns: 1fr !important; }
+  .port-card.featured { grid-column: 1 !important; }
+
+  /* Hero */
+  .hero { padding: 100px 20px 60px !important; }
+  .hero-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .hero-card { width: 100%; }
+
+  /* About */
+  .about-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+
+  /* Contact */
+  .contact-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+
+  /* General section padding */
+  section { padding: 60px 20px !important; }
+
+  /* Nav */
+  nav { padding: 0 20px !important; }
+}
+
+@media (max-width: 600px) {
+  .results-grid { grid-template-columns: 1fr 1fr !important; }
+  #tab-dm > div,
+  #tab-wr > div { grid-template-columns: 1fr !important; }
+
+  .hero h1 { font-size: clamp(32px, 8vw, 48px) !important; }
+  .section-title { font-size: clamp(26px, 6vw, 36px) !important; }
+
+  .hero-btns { flex-direction: column; gap: 10px; }
+  .btn-primary, .btn-secondary { text-align: center; width: 100%; }
+
+  .about-grid { grid-template-columns: 1fr !important; }
+  .testi-grid { grid-template-columns: 1fr !important; }
+
+  .hero-photo-frame { width: 100px !important; height: 100px !important; }
+}
+
+/* Lazy load fade-in */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+img[loading="lazy"].loaded,
+img[loading="lazy"]:not([src=""]) {
+  opacity: 1;
+}
+
 </style>
-</head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Emerson <span>Dinesh</span></a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-links-desktop">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#results">Results</a></li>
@@ -974,7 +1050,23 @@ footer {
     <li><a href="#showcase">Portfolio</a></li>
     <li><a href="#contact" class="nav-cta">Work With Me</a></li>
   </ul>
+  <!-- Mobile hamburger -->
+  <button id="hamburger" aria-label="Open menu" style="display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px;align-items:center;justify-content:center;">
+    <span style="display:block;width:22px;height:2px;background:#fff;border-radius:2px;"></span>
+    <span style="display:block;width:22px;height:2px;background:#fff;border-radius:2px;"></span>
+    <span style="display:block;width:22px;height:2px;background:#fff;border-radius:2px;"></span>
+  </button>
 </nav>
+<!-- Mobile dropdown menu -->
+<div id="mobile-menu" style="display:none;position:fixed;top:64px;left:0;right:0;z-index:99;background:rgba(11,28,61,0.98);backdrop-filter:blur(12px);flex-direction:column;padding:16px 24px 24px;border-bottom:1px solid rgba(255,255,255,0.08);">
+  <a href="#about" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;font-weight:500;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);">About</a>
+  <a href="#experience" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;font-weight:500;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);">Experience</a>
+  <a href="#results" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;font-weight:500;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);">Results</a>
+  <a href="#testimonials" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;font-weight:500;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);">Testimonials</a>
+  <a href="#portfolio" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;font-weight:500;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);">Work</a>
+  <a href="#showcase" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;font-weight:500;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);">Portfolio</a>
+  <a href="#contact" style="display:block;margin-top:16px;padding:13px 20px;background:#2dd4c0;color:#0f1f3d;border-radius:4px;font-size:13px;font-weight:700;text-decoration:none;text-align:center;letter-spacing:0.06em;text-transform:uppercase;">Work With Me</a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -985,13 +1077,13 @@ footer {
     <div class="hero-left">
       <div class="hero-photo-wrap">
       <div class="hero-photo-frame">
-        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80" alt="Emerson Dinesh" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+        <img src="https://media.licdn.com/dms/image/v2/D5603AQEeJjSkHilH5A/profile-displayphoto-shrink_200_200/B56ZTKF1C3HEAY-/0/1738557313693?e=1776297600&v=beta&t=0rfbmL7l2C5OY9FFrz40nBryL41eEsve7DULwGhobmE" alt="Emerson Dinesh" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:50%;" onerror="this.style.display='none';this.parentElement.innerHTML+='<span class=\'hero-photo-initials\'>ED</span>'">
       </div>
       <div class="hero-photo-label"><span class="hero-photo-dot"></span>Open to opportunities</div>
     </div>
 
     <div class="hero-eyebrow">Growth Marketing Manager</div>
-      <h1>I don't just build<br>marketing strategies.<br><em>I build the engine</em><br>that runs them.</h1>
+      <h1>I build marketing<br>systems that drive<br><em>pipeline and revenue.</em></h1>
       <div class="hero-sub">GTM Strategy · Demand Generation · Full-Funnel Execution · Southeast Asia & Beyond</div>
       <p class="hero-desc">
         10+ years turning growth ambition into commercial results — at <strong>AirAsia</strong>, <strong>2X Marketing</strong>, and across Tech, Aviation, Financial Services, and FMCG markets from Kuala Lumpur to Central Asia to North America.
@@ -1085,7 +1177,7 @@ footer {
 <section class="experience" id="experience">
   <div class="section-inner">
     <div class="section-tag">Experience</div>
-    <h2 class="section-title" style="color:white">10 years.<br><em>5 industries. 4 continents.</em></h2>
+    <h2 class="section-title" style="color:white">10 years.<br><em>5 industries.</em></h2>
     <div class="exp-timeline">
 
       <div class="exp-item">
@@ -1254,21 +1346,11 @@ footer {
     <h2 class="section-title">Trusted by leaders<br><em>across industries.</em></h2>
     <div class="testi-grid">
 
-      <div class="testi-card featured">
-        <div class="testi-quote">From the start, his professionalism and deep expertise in B2B marketing were immediately evident. He consistently encourages open communication, fosters an environment where the best solutions can emerge, and drives results while nurturing growth within the team. I highly recommend Emerson as a leader who not only articulates strategy but organises and inspires teams with structure and clarity.</div>
-        <div class="testi-author">
-          <div class="testi-avatar"><!-- REPLACE: <img src="images/testimonial-as.jpg" alt="Aqil S."> -->AS</div>
-          <div>
-            <div class="testi-name">Aqil S.</div>
-            <div class="testi-title">Performance Marketing Manager</div>
-          </div>
-        </div>
-      </div>
-
+      <!-- KIM -->
       <div class="testi-card">
-        <div class="testi-quote">There is no better teammate than Emerson. His expertise as a digital marketing consultant is commendable — he helped in the branding of the company from scratch. His contribution is extremely valuable and I highly recommend him.</div>
+        <div class="testi-quote">I have worked with many professionals throughout my journey, but Emerson was a unique one to work with. There is no better teammate than Emerson. He is willing to put in that extra help whenever you need it. His expertise as a digital marketing consultant/specialist is commendable, and he definitely helped in the branding of the company from scratch. His contribution is extremely valuable. I highly recommend Emerson and would love to work with him again. It was a pleasure to work with Emerson as I have learned a lot from him.</div>
         <div class="testi-author">
-          <div class="testi-avatar"><!-- REPLACE: <img src="images/testimonial-kk.jpg" alt="Kim K."> -->KK</div>
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#2dd4c0,#0f1f3d);">KK</div>
           <div>
             <div class="testi-name">Kim K.</div>
             <div class="testi-title">Regional Director · Tech Startup</div>
@@ -1276,24 +1358,38 @@ footer {
         </div>
       </div>
 
+      <!-- SURESH -->
       <div class="testi-card">
-        <div class="testi-quote">He is great at managing his own agenda making sure that results are delivered in a quality and timely manner. He was also proposing ways of improving existing processes. I'll definitely work with him again.</div>
+        <div class="testi-quote">Emerson is a meticulous person. He worked with me for the Phua Chu Kang project and delivered an outstanding job not only with work behind the scenes on socials but also on event day with the interview sessions he secured with media for the show. There were a lot of things that required tremendous planning but Emerson handled it all in a timely manner.</div>
         <div class="testi-author">
-          <div class="testi-avatar"><!-- REPLACE: <img src="images/testimonial-mp.jpg" alt="Maico Perez"> -->MP</div>
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#3b82f6,#0f1f3d);">S</div>
           <div>
-            <div class="testi-name">Maico Perez</div>
-            <div class="testi-title">CFO · Marketplace</div>
+            <div class="testi-name">Suresh</div>
+            <div class="testi-title">Director · Event Management</div>
           </div>
         </div>
       </div>
 
+      <!-- JONATHAN -->
       <div class="testi-card">
-        <div class="testi-quote">Emerson went above and beyond, taking care of what I needed with a creative mindset, conducting thorough research making it easy for me to decide. He took his role far more seriously than I expected.</div>
+        <div class="testi-quote">Emerson helped us to manage the development of a website for one of our logistics clients. The website was produced smoothly and professionally. Also, he added some personal touches, ensuring that it's not only what the client wanted but also above and beyond.</div>
         <div class="testi-author">
-          <div class="testi-avatar"><!-- REPLACE: <img src="images/testimonial-ge.jpg" alt="Gamal Eryani"> -->GE</div>
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#8b5cf6,#0f1f3d);">J</div>
           <div>
-            <div class="testi-name">Gamal Eryani</div>
-            <div class="testi-title">CEO & Co-Founder · F&B</div>
+            <div class="testi-name">Jonathan</div>
+            <div class="testi-title">CEO & Co-Founder · Logistics</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AQIL -->
+      <div class="testi-card">
+        <div class="testi-quote">From the start, his professionalism and deep expertise in B2B marketing were immediately evident. He consistently encourages open communication, fosters an environment where the best solutions can emerge, and drives results while nurturing growth within the team. I highly recommend Emerson as a leader who not only articulates strategy but organises and inspires teams with structure and clarity.</div>
+        <div class="testi-author">
+          <div class="testi-avatar">AS</div>
+          <div>
+            <div class="testi-name">Aqil S.</div>
+            <div class="testi-title">Performance Marketing Manager</div>
           </div>
         </div>
       </div>
@@ -1317,10 +1413,10 @@ footer {
         <div class="port-body">
           <p class="port-challenge">Challenge: Underperforming multichannel campaign with high cost-per-acquisition, low conversion rates, and a client NPS in decline. Rebuilt the entire campaign architecture across Google Search and Display — restructuring lead journeys, ad copy, and performance reporting to align with the client's commercial objectives.</p>
           <div class="port-results">
-            <span class="port-result-tag">+93% Conversions</span>
-            <span class="port-result-tag">−30% Campaign Costs</span>
-            <span class="port-result-tag">+67% NPS</span>
-            <span class="port-result-tag">100% Promoter Score Q3 2024</span>
+            <span class="port-result-tag" style="font-size:14px;font-weight:800;padding:7px 16px;"><strong>+93% Conversions</strong></span>
+            <span class="port-result-tag" style="font-size:14px;font-weight:800;padding:7px 16px;"><strong>−30% Campaign Costs</strong></span>
+            <span class="port-result-tag" style="font-size:14px;font-weight:800;padding:7px 16px;"><strong>+67% NPS</strong></span>
+            <span class="port-result-tag" style="font-size:14px;font-weight:800;padding:7px 16px;"><strong>100% Promoter Score Q3 2024</strong></span>
           </div>
         </div>
       </div>
@@ -1333,9 +1429,9 @@ footer {
         <div class="port-body">
           <p class="port-challenge">Paid campaign to drive qualified B2B delegate registrations. A/B tested ad copy to find the highest-converting message before scaling spend — copywriting emerged as the primary conversion lever.</p>
           <div class="port-results">
-            <span class="port-result-tag">171 Leads</span>
-            <span class="port-result-tag">4.87% CVR</span>
-            <span class="port-result-tag">33K Impressions</span>
+            <span class="port-result-tag" style="font-size:14px;font-weight:800;padding:7px 16px;"><strong>171 Leads</strong></span>
+            <span class="port-result-tag" style="font-size:14px;font-weight:800;padding:7px 16px;"><strong>4.87% CVR</strong></span>
+            <span class="port-result-tag" style="font-size:14px;font-weight:800;padding:7px 16px;"><strong>33K Impressions</strong></span>
           </div>
         </div>
       </div>
@@ -1348,9 +1444,9 @@ footer {
         <div class="port-body">
           <p class="port-challenge">Social media campaign for a live event leveraging nostalgia-driven video content, flash sales, and contest giveaways to convert awareness into ticket sales.</p>
           <div class="port-results">
-            <span class="port-result-tag">99.5K Views</span>
-            <span class="port-result-tag">213K Reach</span>
-            <span class="port-result-tag">280 Tickets Sold</span>
+            <span class="port-result-tag" style="font-size:14px;font-weight:800;padding:7px 16px;"><strong>99.5K Views</strong></span>
+            <span class="port-result-tag" style="font-size:14px;font-weight:800;padding:7px 16px;"><strong>213K Reach</strong></span>
+            <span class="port-result-tag" style="font-size:14px;font-weight:800;padding:7px 16px;"><strong>280 Tickets Sold</strong></span>
           </div>
         </div>
       </div>
@@ -1385,95 +1481,95 @@ footer {
 
       <!-- 3novex: dm-3novex image -->
       <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="height:190px;overflow:hidden;position:relative;background:#0f1f3d;">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="3novex" style="width:100%;height:100%;object-fit:cover;">
+        <div style="height:220px;overflow:hidden;position:relative;background:#0f1f3d;">
+          <img src="images/dm-3novex.jpg" alt="3Novex Campaign Screenshot" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80'">
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,transparent 55%);"></div>
           <span style="position:absolute;bottom:12px;left:12px;background:#0ea898;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.08em;padding:3px 10px;border-radius:4px;z-index:2;">LEAD GENERATION</span>
         </div>
         <div style="padding:20px;">
           <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:#0ea898;margin-bottom:6px;text-transform:uppercase;">3Novex Asia Sdn Bhd</div>
-          <div style="font-size:15px;font-weight:600;color:#111827;margin-bottom:8px;line-height:1.3;">B2B Conference Lead Gen Campaign</div>
+          <div style="font-size:16px;font-weight:700;color:#111827;margin-bottom:8px;line-height:1.3;">B2B Conference Lead Gen Campaign</div>
           <div style="font-size:13px;color:#6b7280;line-height:1.6;margin-bottom:14px;">4-week paid campaign. A/B tested copy to find the highest-converting message before scaling spend. Copywriting was the decisive lever.</div>
           <div style="display:flex;flex-wrap:wrap;gap:6px;">
-            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:11px;font-weight:600;padding:3px 10px;">171 Leads</span>
-            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:11px;font-weight:600;padding:3px 10px;">4.87% CVR</span>
-            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:11px;font-weight:600;padding:3px 10px;">33K Impressions</span>
-            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:11px;font-weight:600;padding:3px 10px;">1,583 Clicks</span>
+            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:13px;font-weight:800;padding:5px 12px;"><strong>171 Leads</strong></span>
+            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:13px;font-weight:800;padding:5px 12px;"><strong>4.87% CVR</strong></span>
+            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:13px;font-weight:800;padding:5px 12px;"><strong>33K Impressions</strong></span>
+            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:13px;font-weight:800;padding:5px 12px;"><strong>1,583 Clicks</strong></span>
           </div>
         </div>
       </div>
 
-      <!-- AirAsia: airasiaactivation6 + airasiaactivation8 -->
+      <!-- AirAsia: activation pics -->
       <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="height:190px;display:grid;grid-template-columns:1fr 1fr;gap:2px;position:relative;background:#0f1f3d;">
-          <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80" alt="AirAsia" style="width:100%;height:100%;object-fit:cover;">
-          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="AirAsia" style="width:100%;height:100%;object-fit:cover;">
+        <div style="height:220px;display:grid;grid-template-columns:1fr 1fr;gap:2px;position:relative;background:#0f1f3d;">
+          <img src="images/airasiaactivation6.jpg" alt="AirAsia Activation" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80'">
+          <img src="images/airasiaactivation8.jpg" alt="AirAsia Activation" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80'">
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,transparent 55%);pointer-events:none;"></div>
           <span style="position:absolute;bottom:12px;left:12px;background:#0ea898;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.08em;padding:3px 10px;border-radius:4px;z-index:2;">GTM · NEW MARKETS</span>
         </div>
         <div style="padding:20px;">
           <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:#0ea898;margin-bottom:6px;text-transform:uppercase;">AirAsia</div>
-          <div style="font-size:15px;font-weight:600;color:#111827;margin-bottom:8px;line-height:1.3;">Central Asia Market Activation</div>
+          <div style="font-size:16px;font-weight:700;color:#111827;margin-bottom:8px;line-height:1.3;">Central Asia Market Activation</div>
           <div style="font-size:13px;color:#6b7280;line-height:1.6;margin-bottom:14px;">End-to-end GTM execution — from proposal to on-ground launch. KOL collaborations, vendor management, tourism partners and media agencies in-market.</div>
           <div style="display:flex;flex-wrap:wrap;gap:6px;">
-            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:11px;font-weight:600;padding:3px 10px;">New Market Entry</span>
-            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:11px;font-weight:600;padding:3px 10px;">KOL Management</span>
-            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:11px;font-weight:600;padding:3px 10px;">On-Ground</span>
+            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:12px;font-weight:700;padding:4px 12px;">New Market Entry</span>
+            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:12px;font-weight:700;padding:4px 12px;">KOL Management</span>
+            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:12px;font-weight:700;padding:4px 12px;">On-Ground</span>
           </div>
         </div>
       </div>
 
       <!-- PCK: dm-pck.jpeg single tile -->
       <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="height:190px;overflow:hidden;position:relative;background:#0f1f3d;">
-          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80" alt="PCK Live" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+        <div style="height:220px;overflow:hidden;position:relative;background:#0f1f3d;">
+          <img src="images/dm-pck.jpeg" alt="PCK Live Social Campaign" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;" onerror="this.src='https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80'">
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,transparent 55%);"></div>
           <span style="position:absolute;bottom:12px;left:12px;background:#0ea898;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.08em;padding:3px 10px;border-radius:4px;z-index:2;">SOCIAL MEDIA</span>
         </div>
         <div style="padding:20px;">
           <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:#0ea898;margin-bottom:6px;text-transform:uppercase;">Big Show Entertainment</div>
-          <div style="font-size:15px;font-weight:600;color:#111827;margin-bottom:8px;line-height:1.3;">Phua Chu Kang Live — Social Campaign</div>
+          <div style="font-size:16px;font-weight:700;color:#111827;margin-bottom:8px;line-height:1.3;">Phua Chu Kang Live — Social Campaign</div>
           <div style="font-size:13px;color:#6b7280;line-height:1.6;margin-bottom:14px;">5 nostalgia-driven videos, flash sales, contest giveaways and ticketing platform integration. Content-led ticket conversion.</div>
           <div style="display:flex;flex-wrap:wrap;gap:6px;">
-            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:11px;font-weight:600;padding:3px 10px;">99.5K Views</span>
-            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:11px;font-weight:600;padding:3px 10px;">213K Reach</span>
-            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:11px;font-weight:600;padding:3px 10px;">280 Tickets Sold</span>
+            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:13px;font-weight:800;padding:5px 12px;"><strong>99.5K Views</strong></span>
+            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:13px;font-weight:800;padding:5px 12px;"><strong>213K Reach</strong></span>
+            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:13px;font-weight:800;padding:5px 12px;"><strong>280 Tickets Sold</strong></span>
           </div>
         </div>
       </div>
 
       <!-- BlueJ: dm-bluej single tile -->
       <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="height:190px;overflow:hidden;position:relative;background:#0f1f3d;">
-          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80" alt="BlueJ" style="width:100%;height:100%;object-fit:cover;">
+        <div style="height:220px;overflow:hidden;position:relative;background:#0f1f3d;">
+          <img src="images/dm-bluej.jpg" alt="BlueJ Ramadan Social Media" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80'">
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,transparent 55%);"></div>
           <span style="position:absolute;bottom:12px;left:12px;background:#0ea898;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.08em;padding:3px 10px;border-radius:4px;z-index:2;">SOCIAL MEDIA MGMT</span>
         </div>
         <div style="padding:20px;">
           <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:#0ea898;margin-bottom:6px;text-transform:uppercase;">BlueJ — Delivery App</div>
-          <div style="font-size:15px;font-weight:600;color:#111827;margin-bottom:8px;line-height:1.3;">Social Media Management — Ramadan Launch</div>
+          <div style="font-size:16px;font-weight:700;color:#111827;margin-bottom:8px;line-height:1.3;">Social Media Management — Ramadan Launch</div>
           <div style="font-size:13px;color:#6b7280;line-height:1.6;margin-bottom:14px;">Seasonal Ramadan content strategy. Merchant co-promotions, targeted content calendar, community growth.</div>
           <div style="display:flex;flex-wrap:wrap;gap:6px;">
-            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:11px;font-weight:600;padding:3px 10px;">+50 Followers/Day</span>
-            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:11px;font-weight:600;padding:3px 10px;">Ramadan Campaign</span>
+            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:13px;font-weight:800;padding:5px 12px;"><strong>+50 Followers/Day</strong></span>
+            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:13px;font-weight:800;padding:5px 12px;"><strong>Ramadan Campaign</strong></span>
           </div>
         </div>
       </div>
 
       <!-- Dolphin: dm-dolphin single tile -->
       <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="height:190px;overflow:hidden;position:relative;background:#0f1f3d;">
-          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80" alt="Dolphin Tech" style="width:100%;height:100%;object-fit:cover;">
+        <div style="height:220px;overflow:hidden;position:relative;background:#0f1f3d;">
+          <img src="images/dm-dolphin.jpg" alt="Dolphin Tech Brand Awareness" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80'">
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,transparent 55%);"></div>
           <span style="position:absolute;bottom:12px;left:12px;background:#0ea898;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.08em;padding:3px 10px;border-radius:4px;z-index:2;">CONTENT STRATEGY</span>
         </div>
         <div style="padding:20px;">
           <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:#0ea898;margin-bottom:6px;text-transform:uppercase;">Dolphin Tech</div>
-          <div style="font-size:15px;font-weight:600;color:#111827;margin-bottom:8px;line-height:1.3;">Brand Awareness — Digital Talent Agency</div>
+          <div style="font-size:16px;font-weight:700;color:#111827;margin-bottom:8px;line-height:1.3;">Brand Awareness — Digital Talent Agency</div>
           <div style="font-size:13px;color:#6b7280;line-height:1.6;margin-bottom:14px;">Visuals, animated videos and infographics. Infographics drove the highest traction — communicating value clearly to job seekers.</div>
           <div style="display:flex;flex-wrap:wrap;gap:6px;">
-            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:11px;font-weight:600;padding:3px 10px;">+10% Follower Growth</span>
-            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:11px;font-weight:600;padding:3px 10px;">Brand Awareness</span>
+            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:13px;font-weight:800;padding:5px 12px;"><strong>+10% Follower Growth</strong></span>
+            <span style="background:rgba(14,168,152,0.08);border:1px solid rgba(14,168,152,0.2);color:#0ea898;border-radius:20px;font-size:13px;font-weight:800;padding:5px 12px;"><strong>Brand Awareness</strong></span>
           </div>
         </div>
       </div>
@@ -1491,26 +1587,33 @@ footer {
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:48px;">
 
       <a href="https://hype.my/2019/174308/phua-chu-kang-malaysia/" target="_blank" style="text-decoration:none;background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;display:block;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="height:160px;display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#0f1f3d;">
-          <img src="images/dm-pck2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
-          <img src="images/dm-pck3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+        <div style="height:160px;display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#0f1f3d;position:relative;">
+          <img src="images/dm-pck2.jpg" alt="PCK Hype Feature" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80'">
+          <img src="images/dm-pck3.jpg" alt="PCK Hype Feature" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80'">
+          <div style="position:absolute;top:10px;left:10px;background:rgba(0,0,0,0.72);border:1px solid rgba(45,212,192,0.3);border-radius:4px;padding:3px 10px;">
+            <span style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:#2dd4c0;text-transform:uppercase;">HYPE.MY</span>
+          </div>
         </div>
         <div style="padding:18px;">
           <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:#0ea898;margin-bottom:6px;text-transform:uppercase;">Hype.my — Pre-Event Feature</div>
           <div style="font-size:15px;font-weight:600;color:#111827;margin-bottom:8px;">Phua Chu Kang is Coming to Malaysia</div>
-          <div style="font-size:13px;color:#6b7280;line-height:1.5;margin-bottom:14px;">Pitched and secured editorial on Hype.my — 3× PR value delivered above scope.</div>
+          <div style="font-size:13px;color:#6b7280;line-height:1.5;margin-bottom:10px;">Pitched and secured editorial on Hype.my — <strong style="color:#0ea898;font-size:14px;">3× PR value</strong> delivered above scope.</div>
           <span style="display:inline-block;font-size:12px;font-weight:600;color:#0ea898;border:1px solid rgba(14,168,152,0.3);border-radius:4px;padding:5px 14px;">Read Article ↗</span>
         </div>
       </a>
 
       <a href="https://rojakdaily.com/entertainment/article/7894/phua-chu-kang-is-coming-to-malaysia-to-make-fun-of-you-this-november" target="_blank" style="text-decoration:none;background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;display:block;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="height:160px;overflow:hidden;background:#0f1f3d;">
-          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+        <div style="height:160px;overflow:hidden;background:#0f1f3d;position:relative;">
+          <img src="images/dm-pck.jpeg" alt="Rojak Daily PCK Feature" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80'">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.45) 0%,transparent 60%);"></div>
+          <div style="position:absolute;top:10px;left:10px;background:rgba(0,0,0,0.72);border:1px solid rgba(45,212,192,0.3);border-radius:4px;padding:3px 10px;">
+            <span style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:#2dd4c0;text-transform:uppercase;">ROJAK DAILY</span>
+          </div>
         </div>
         <div style="padding:18px;">
           <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:#0ea898;margin-bottom:6px;text-transform:uppercase;">Rojak Daily — Pre-Event Feature</div>
           <div style="font-size:15px;font-weight:600;color:#111827;margin-bottom:8px;">Phua Chu Kang is Coming to Make Fun of You</div>
-          <div style="font-size:13px;color:#6b7280;line-height:1.5;margin-bottom:14px;">500–600K monthly users · 550–700K page views/month.</div>
+          <div style="font-size:13px;color:#6b7280;line-height:1.5;margin-bottom:10px;"><strong style="color:#0ea898;font-size:14px;">500–600K monthly users</strong> · <strong style="color:#0ea898;font-size:14px;">550–700K page views/month</strong>.</div>
           <span style="display:inline-block;font-size:12px;font-weight:600;color:#0ea898;border:1px solid rgba(14,168,152,0.3);border-radius:4px;padding:5px 14px;">Read Article ↗</span>
         </div>
       </a>
@@ -1722,12 +1825,12 @@ footer {
   ══════════════════════════════ -->
   <div id="tab-sp" style="display:none;">
     <p style="font-size:14px;color:#6b7280;margin-bottom:28px;line-height:1.7;">Speaking engagements, stakeholder presentations and industry talks across my career.</p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:860px;">
 
-      <!-- Silver Bullion: dm-silverbullion2 as main image -->
+      <!-- Silver Bullion -->
       <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="height:200px;overflow:hidden;position:relative;background:#0f1f3d;">
-          <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&q=80" alt="Emerson presenting" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+        <div style="height:220px;overflow:hidden;position:relative;background:#0f1f3d;">
+          <img src="images/dm-silverbullion2.jpg" alt="Emerson speaking at Silver Bullion" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;" onerror="this.src='https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&q=80'">
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,transparent 55%);"></div>
           <span style="position:absolute;bottom:12px;left:12px;background:#0ea898;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.08em;padding:3px 10px;border-radius:4px;z-index:2;">SPEAKER · 2017</span>
         </div>
@@ -1738,10 +1841,10 @@ footer {
         </div>
       </div>
 
-      <!-- Chaintope: chaintope5 as main image -->
+      <!-- Chaintope -->
       <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="height:200px;overflow:hidden;position:relative;background:#0f1f3d;">
-          <img src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=600&q=80" alt="Chaintope presentation" style="width:100%;height:100%;object-fit:cover;">
+        <div style="height:220px;overflow:hidden;position:relative;background:#0f1f3d;">
+          <img src="images/chaintope5.jpg" alt="Emerson presenting at Chaintope" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=600&q=80'">
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,transparent 55%);"></div>
           <span style="position:absolute;bottom:12px;left:12px;background:#0ea898;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.08em;padding:3px 10px;border-radius:4px;z-index:2;">BLOCKCHAIN ADVOCATE</span>
         </div>
@@ -1749,20 +1852,6 @@ footer {
           <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:#0ea898;margin-bottom:6px;text-transform:uppercase;">Chaintope · TrueIncube · MDEC</div>
           <div style="font-size:15px;font-weight:600;color:#111827;margin-bottom:8px;line-height:1.3;">Blockchain Industry Talks & Stakeholder Presentations</div>
           <div style="font-size:13px;color:#6b7280;line-height:1.6;">Pitched blockchain adoption to govt reps, FMM, AEON and enterprise clients. Partnered with MDEC for the National E-Commerce Strategic Roadmap.</div>
-        </div>
-      </div>
-
-      <!-- AirAsia: airasiaactivation5 as main image -->
-      <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="height:200px;overflow:hidden;position:relative;background:#0f1f3d;">
-          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80" alt="AirAsia briefing" style="width:100%;height:100%;object-fit:cover;">
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,transparent 55%);"></div>
-          <span style="position:absolute;bottom:12px;left:12px;background:#0ea898;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.08em;padding:3px 10px;border-radius:4px;z-index:2;">MARKET BRIEFINGS · 2025</span>
-        </div>
-        <div style="padding:20px;">
-          <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:#0ea898;margin-bottom:6px;text-transform:uppercase;">AirAsia · Central Asia</div>
-          <div style="font-size:15px;font-weight:600;color:#111827;margin-bottom:8px;line-height:1.3;">Partner & Stakeholder Briefings — Central Asia Market Entry</div>
-          <div style="font-size:13px;color:#6b7280;line-height:1.6;">Led partner briefings aligning tourism boards, government bodies, and media agencies around AirAsia's GTM strategy for Central Asia.</div>
         </div>
       </div>
 
@@ -1812,9 +1901,9 @@ function stab(btn, id) {
       <div>
         <p class="contact-text">I'm currently open to <strong>Marketing Manager</strong> and <strong>Regional Marketing Manager</strong> roles in Tech/SaaS, Aviation, Financial Services, and FMCG — where marketing is expected to move the business, not just support it.</p>
         <div class="contact-links">
-          <a href="/cdn-cgi/l/email-protection#385d555d4a4b57565c565d4b50080f785f55595154165b5755" class="contact-link">
+          <a href="mailto:emersondnesh07@gmail.com" class="contact-link">
             <div class="contact-link-icon">✉</div>
-            <span class="__cf_email__" data-cfemail="0b6e666e797864656f656e78633b3c4b6c666a626725686466">[email&#160;protected]</span>
+            emersondnesh07@gmail.com
           </a>
           <a href="https://linkedin.com/in/emersondinesh" target="_blank" class="contact-link">
             <div class="contact-link-icon">in</div>
@@ -1822,7 +1911,7 @@ function stab(btn, id) {
           </a>
           <a href="#" class="contact-link">
             <div class="contact-link-icon">📍</div>
-            Kuala Lumpur, Malaysia · Open to regional roles
+            Kuala Lumpur, Malaysia
           </a>
         </div>
         <div class="contact-open">
@@ -1830,27 +1919,128 @@ function stab(btn, id) {
           <div class="contact-open-text">Full-time Marketing Manager · Regional Marketing Manager · Senior Growth Marketing roles · Select consulting engagements</div>
         </div>
       </div>
-      <form class="contact-form" onsubmit="return false">
+      <form class="contact-form" id="contact-form" action="https://formspree.io/f/emersondnesh07@gmail.com" method="POST" onsubmit="handleFormSubmit(event)">
         <div class="form-group">
           <label class="form-label">Your Name</label>
-          <input type="text" class="form-input" placeholder="Jane Smith">
+          <input type="text" name="name" class="form-input" placeholder="Jane Smith" required>
         </div>
         <div class="form-group">
           <label class="form-label">Company</label>
-          <input type="text" class="form-input" placeholder="Acme Corp">
+          <input type="text" name="company" class="form-input" placeholder="Acme Corp">
         </div>
         <div class="form-group">
           <label class="form-label">Email</label>
-          <input type="email" class="form-input" placeholder="jane@acmecorp.com">
+          <input type="email" name="email" class="form-input" placeholder="jane@acmecorp.com" required>
         </div>
         <div class="form-group">
           <label class="form-label">Message</label>
-          <textarea class="form-textarea" placeholder="Tell me about the role or project..."></textarea>
+          <textarea name="message" class="form-textarea" placeholder="Tell me about the role or project..." required></textarea>
         </div>
-        <a href="/cdn-cgi/l/email-protection#2540484057564a4b414b40564d1512654248444c490b464a48" class="btn-primary" style="text-align:center;">Send Message</a>
+        <input type="hidden" name="_replyto" value="">
+        <button type="submit" class="btn-primary" id="form-btn" style="text-align:center;border:none;cursor:pointer;width:100%;">Send Message</button>
+        <div id="form-success" style="display:none;margin-top:12px;padding:12px 16px;background:rgba(14,168,152,0.12);border:1px solid rgba(14,168,152,0.3);border-radius:8px;color:#2dd4c0;font-size:13px;font-weight:500;text-align:center;">✓ Message sent! I'll be in touch soon.</div>
+        <div id="form-error" style="display:none;margin-top:12px;padding:12px 16px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);border-radius:8px;color:#fca5a5;font-size:13px;font-weight:500;text-align:center;">Something went wrong. Please email me directly at emersondnesh07@gmail.com</div>
       </form>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
+<footer>
+  <div class="footer-name">Emerson <span>Dinesh</span></div>
+  <div class="footer-text">Growth Marketing Manager · Kuala Lumpur</div>
+</footer>
+
+<script>
+/* ── Form submission handler ── */
+async function handleFormSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('form-btn');
+  const form = document.getElementById('contact-form');
+  const successMsg = document.getElementById('form-success');
+  const errorMsg = document.getElementById('form-error');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  try {
+    const data = new FormData(form);
+    const res = await fetch('https://formspree.io/f/xpwzggpj', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      successMsg.style.display = 'block';
+      errorMsg.style.display = 'none';
+      form.reset();
+      btn.textContent = 'Sent ✓';
+    } else {
+      throw new Error('Server error');
+    }
+  } catch (err) {
+    errorMsg.style.display = 'block';
+    successMsg.style.display = 'none';
+    btn.textContent = 'Send Message';
+    btn.disabled = false;
+  }
+}
+
+/* ── Tab switching (showcase) ── */
+function loadBainsVideo() {
+  document.getElementById('vid-thumb').style.display = 'none';
+  document.getElementById('bains-player').style.display = 'block';
+  document.getElementById('bains-iframe').src = 'https://www.youtube.com/embed/O7O6h6heLzs?autoplay=1&rel=0&modestbranding=1';
+}
+
+function stab(btn, id) {
+  var panels = ['dm','pr','wr','vid','sp'];
+  for (var i = 0; i < panels.length; i++) {
+    document.getElementById('tab-' + panels[i]).style.display = 'none';
+  }
+  var btns = document.querySelectorAll('.stabbtn');
+  for (var j = 0; j < btns.length; j++) {
+    btns[j].style.borderBottomColor = 'transparent';
+    btns[j].style.color = '#9ca3af';
+    btns[j].style.fontWeight = '500';
+  }
+  document.getElementById('tab-' + id).style.display = 'block';
+  btn.style.borderBottomColor = '#0ea898';
+  btn.style.color = '#0ea898';
+  btn.style.fontWeight = '600';
+}
+
+/* ── Lazy load images (IntersectionObserver) ── */
+document.addEventListener('DOMContentLoaded', function() {
+  if ('IntersectionObserver' in window) {
+    var lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    var observer = new IntersectionObserver(function(entries, obs) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var img = entry.target;
+          if (img.dataset.src) { img.src = img.dataset.src; }
+          obs.unobserve(img);
+        }
+      });
+    }, { rootMargin: '200px 0px' });
+    lazyImages.forEach(function(img) { observer.observe(img); });
+  }
+});
+
+/* ── Mobile hamburger menu ── */
+document.addEventListener('DOMContentLoaded', function() {
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobile-menu');
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', function() {
+      var isOpen = mobileMenu.style.display === 'flex';
+      mobileMenu.style.display = isOpen ? 'none' : 'flex';
+    });
+    mobileMenu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        mobileMenu.style.display = 'none';
+      });
+    });
+  }
+});
+</script>
+</body>
+</html>
